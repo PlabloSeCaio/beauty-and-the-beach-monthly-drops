@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Plan — Beauty and the Beach Salon | Julio 2026</title>
+<style>
+  :root {
+    --primary: #000000;
+    --secondary: #242389;
+    --accent: #FFCC00;
+    --light: #91BCDE;
+    --bg: #f8f6f3;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --success: #2ecc71;
+    --danger: #e74c3c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* HEADER */
+  header { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 56px 0 40px; }
+  header h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.5px; }
+  header .sub { font-size: 1.15rem; opacity: 0.85; margin-top: 6px; }
+  header .badge { display: inline-block; background: var(--accent); color: var(--primary); padding: 4px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  header .meta { margin-top: 12px; font-size: 0.9rem; opacity: 0.7; }
+
+  /* NAV */
+  nav { background: var(--secondary); padding: 12px 0; position: sticky; top: 0; z-index: 100; }
+  nav .container { display: flex; gap: 6px; flex-wrap: wrap; }
+  nav a { color: white; text-decoration: none; font-size: 0.78rem; padding: 4px 12px; border-radius: 20px; background: rgba(255,255,255,0.1); transition: 0.2s; }
+  nav a:hover { background: var(--accent); color: var(--primary); }
+
+  /* SECTIONS */
+  .section { padding: 36px 0; border-bottom: 1px solid #e0ddd8; }
+  .section h2 { font-size: 1.6rem; color: var(--secondary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+
+  /* EDITORIAL NOTE */
+  .editorial-note { background: var(--card); border-radius: 12px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 24px; }
+  .editorial-note h2 { font-size: 1.3rem; color: var(--secondary); margin-bottom: 12px; border-bottom: 3px solid var(--accent); padding-bottom: 8px; }
+  .editorial-note p, .editorial-note li { font-size: 0.95rem; }
+  .editorial-note ul { padding-left: 20px; }
+
+  /* PERSONA KEY */
+  .persona-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
+  .persona-table th { background: var(--secondary); color: white; padding: 12px 16px; text-align: left; font-weight: 600; }
+  .persona-table td { padding: 12px 16px; border-bottom: 1px solid #e0ddd8; }
+  .persona-table tr:hover td { background: #f0ede8; }
+
+  /* WEEK HEADER */
+  .week-header { background: linear-gradient(135deg, var(--secondary), #3a39a0); color: white; border-radius: 12px; padding: 18px 28px; margin: 32px 0 20px; display: flex; justify-content: space-between; align-items: center; }
+  .week-header h2 { color: white; margin: 0; font-size: 1.3rem; }
+  .week-header .theme-label { background: var(--accent); color: var(--primary); padding: 4px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* DELIVERABLE CARD */
+  .deliverable { background: var(--card); border-radius: 12px; margin-bottom: 24px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .deliverable-header { padding: 16px 24px; color: white; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .deliverable-header.h1 { background: linear-gradient(135deg, #242389, #4a49b0); }
+  .deliverable-header.h2 { background: linear-gradient(135deg, #1a5276, #2e86c1); }
+  .deliverable-header.h3 { background: linear-gradient(135deg, #6c3483, #af7ac5); }
+  .deliverable-header.h4 { background: linear-gradient(135deg, #0e6655, #1abc9c); }
+  .deliverable-header.h5 { background: linear-gradient(135deg, #7b241c, #e74c3c); }
+  .deliverable-header .meta { font-size: 0.8rem; opacity: 0.9; }
+  .deliverable-header .format-badge { background: rgba(255,255,255,0.2); padding: 3px 12px; border-radius: 14px; font-size: 0.72rem; font-weight: 600; }
+  .deliverable-body { padding: 20px 24px; }
+  .deliverable-body .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); font-weight: 600; margin-bottom: 4px; margin-top: 12px; }
+  .deliverable-body .label:first-child { margin-top: 0; }
+  .deliverable-body .value { font-size: 0.95rem; margin-bottom: 12px; }
+  .deliverable-body .value.title { font-size: 1.15rem; font-weight: 600; color: var(--secondary); }
+  .deliverable-body .slide { background: #f8f6f3; border-left: 3px solid var(--light); padding: 8px 14px; margin: 4px 0; border-radius: 0 4px 4px 0; font-size: 0.9rem; }
+  .deliverable-body .push { background: #fff3cd; border-left: 3px solid #f39c12; padding: 10px 14px; margin: 8px 0; border-radius: 0 4px 4px 0; font-size: 0.9rem; }
+  .deliverable-body .push strong { color: #856404; }
+  .deliverable-body .blog-h2 { font-weight: 600; color: var(--secondary); margin-top: 10px; margin-bottom: 2px; font-size: 0.95rem; }
+  .deliverable-body .blog-explain { font-size: 0.9rem; color: var(--muted); padding-left: 12px; margin-bottom: 6px; }
+  .deliverable-body .cta { background: var(--accent); color: var(--primary); padding: 8px 14px; border-radius: 6px; display: inline-block; font-weight: 600; font-size: 0.9rem; margin-top: 8px; }
+  .deliverable-body .email-line { margin: 2px 0; font-size: 0.92rem; }
+  .deliverable-body .email-line.subject { font-weight: 600; color: var(--secondary); font-size: 1rem; }
+  .deliverable-body .email-line.preview { color: var(--muted); font-style: italic; }
+  .deliverable-body .email-body { background: #f8f6f3; border-radius: 8px; padding: 16px; margin-top: 8px; font-size: 0.9rem; line-height: 1.6; }
+  .deliverable-body .infobox { background: #f0ede8; border-radius: 8px; padding: 14px; margin-top: 8px; }
+  .deliverable-body .infobox h4 { font-size: 0.85rem; color: var(--secondary); margin-bottom: 4px; }
+
+  /* COUNT CHECK */
+  .count-check { background: var(--card); border-radius: 12px; padding: 24px 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin: 24px 0; }
+  .count-check h2 { color: var(--secondary); margin-bottom: 12px; font-size: 1.3rem; }
+  .count-check .row { display: flex; gap: 20px; flex-wrap: wrap; }
+  .count-check .item { background: #d4edda; color: #155724; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
+
+  /* CALENDAR TABLE */
+  .cal-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88rem; }
+  .cal-table th { background: var(--secondary); color: white; padding: 10px 14px; text-align: left; }
+  .cal-table td { padding: 10px 14px; border-bottom: 1px solid #e0ddd8; }
+  .cal-table tr:hover td { background: #f0ede8; }
+
+  /* FOOTER */
+  footer { background: var(--primary); color: white; padding: 24px 0; text-align: center; font-size: 0.85rem; opacity: 0.8; }
+
+  @media (max-width: 768px) {
+    header h1 { font-size: 1.6rem; }
+    .deliverable-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <span class="badge">Content Plan — First Edition</span>
+    <h1>Beauty and the Beach Salon</h1>
+    <p class="sub">Content Plan — Julio 2026</p>
+    <p class="meta">Outcomes-First Narrative · Persona-Targeted · 22 Deliverables</p>
+  </div>
+</header>
+
+<nav>
+  <div class="container">
+    <a href="#editorial">Editorial Note</a>
+    <a href="#personas">Persona Key</a>
+    <a href="#week1">Week 1</a>
+    <a href="#week2">Week 2</a>
+    <a href="#week3">Week 3</a>
+    <a href="#week4">Week 4</a>
+    <a href="#week5">Week 5</a>
+    <a href="#count">Deliverable Check</a>
+    <a href="#calendar">Calendar</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- EDITORIAL NOTE -->
+  <div class="section" id="editorial">
+    <div class="editorial-note">
+      <h2>Editorial Note — Strategy &amp; Tone</h2>
+      <p><strong>Outcome-first narrative:</strong> July is peak Florida summer — humidity, frizz, brassiness, and vacation prep. Every piece of content answers the question: "Will my hair survive summer?" The month leads with the Summer Hair Reset (keratin/K-18), reinforces trust through named stylist content, and plants seeds for back-to-school.</p>
+      <p style="margin-top:8px;"><strong>Persona targeting:</strong> Content mapped to Blonde &amp; Color Loyalists, Trust-First New Clients, Healthy Hair Treatment Seekers, Family &amp; Mom Bookers, and Curly &amp; Textured Niche.</p>
+      <p style="margin-top:8px;"><strong>Language:</strong> Casual, friendly, girl-to-girl. Short natural sentences. No marketing fluff. Use approved message blocks. Avoid: "luxury," "innovative," "seamless," "hassle-free," "game-changing," "revolutionary." Lead with outcomes, not features.</p>
+    </div>
+  </div>
+
+  <!-- PERSONA KEY -->
+  <div class="section" id="personas">
+    <h2>Persona Key</h2>
+    <table class="persona-table">
+      <tr><th>Cluster</th><th>Description</th><th>Main Trigger</th></tr>
+      <tr>
+        <td><strong>Blonde &amp; Color Loyalists</strong></td>
+        <td>Women 30-55; visit every 4-8 weeks; spend $150-400/visit; highest LTV</td>
+        <td>Visible roots, brassiness, seasonal refresh</td>
+      </tr>
+      <tr>
+        <td><strong>Trust-First New Clients</strong></td>
+        <td>Women 25-50; anxious about bad salon experiences; research heavily before booking</td>
+        <td>Bad hair day, special event, recommendation</td>
+      </tr>
+      <tr>
+        <td><strong>Healthy Hair Treatment Seekers</strong></td>
+        <td>Men and women 25-55 with frizzy, damaged, humidity-affected hair</td>
+        <td>Florida humidity (April-Oct), summer vacation prep</td>
+      </tr>
+      <tr>
+        <td><strong>Family &amp; Mom Bookers</strong></td>
+        <td>Moms 28-45 booking for self + children; convenience-driven</td>
+        <td>Back-to-school, holidays, first haircut</td>
+      </tr>
+      <tr>
+        <td><strong>Curly &amp; Textured Niche</strong></td>
+        <td>Women 15-50 with curly/coily/wavy hair; underserved locally</td>
+        <td>Bad curly cut, seasonal change</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ====== WEEK 1 ====== -->
+  <div class="section" id="week1">
+    <div class="week-header">
+      <h2>Semana 1 — 1–5 Julio · Summer Hair Reset</h2>
+      <span class="theme-label">Summer Hair Reset</span>
+    </div>
+
+    <!-- CAROUSEL 1 -->
+    <div class="deliverable">
+      <div class="deliverable-header h1">
+        <div>
+          <strong>Julio 1 — Carousel</strong>
+          <div class="meta">👤 Blonde &amp; Color Loyalists · 📅 Week 1 · Summer Hair Reset</div>
+        </div>
+        <span class="format-badge">Carousel (5 slides)</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Objective</div>
+        <div class="value">Drive existing blonde clients to book their July refresh and reassure them their color stays cool, not brassy, even in Florida summer.</div>
+        <div class="label">Title</div>
+        <div class="value title">Your Blonde Deserves a Summer Refresh</div>
+        <div class="label">Slide Copy</div>
+        <div class="slide"><strong>Slide 1:</strong> Summer = brassiness season. Your blonde deserves better than turning orange in the Florida sun.</div>
+        <div class="slide"><strong>Slide 2:</strong> We use Davines professional toners that neutralize warm tones — keeping your blonde cool, dimensional, and fresh.</div>
+        <div class="slide"><strong>Slide 3:</strong> Every color service includes K-18 bond repair. Your hair stays healthy even after lightening.</div>
+        <div class="slide"><strong>Slide 4:</strong> Our blonding specialists — Brittny, Anjalic, Abby — have been praised for keeping blondes cool and healthy. "For a blonde like me, this is essential." — Sarah</div>
+        <div class="slide"><strong>Slide 5:</strong> Your next refresh is one click away. Book your summer blonde appointment today.</div>
+        <div class="label">Caption</div>
+        <div class="value">Summer is here — and so is brassiness season. 🌞 Don't let the Florida sun turn your blonde warm. Our color specialists use Davines toners + K-18 bond repair to keep you cool, dimensional, and healthy. Book your July refresh now. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+
+    <!-- CAROUSEL 2 -->
+    <div class="deliverable">
+      <div class="deliverable-header h2">
+        <div>
+          <strong>Julio 3 — Carousel</strong>
+          <div class="meta">👤 Trust-First New Clients · 📅 Week 1 · Summer Hair Reset</div>
+        </div>
+        <span class="format-badge">Carousel (4 slides)</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Objective</div>
+        <div class="value">Reduce booking anxiety for first-time visitors by showing exactly what happens during a consultation.</div>
+        <div class="label">Title</div>
+        <div class="value title">What to Expect at Your First Visit</div>
+        <div class="label">Slide Copy</div>
+        <div class="slide"><strong>Slide 1:</strong> Walking into a new salon is nerve-wracking. We get it. Here's exactly what happens so you know what to expect.</div>
+        <div class="slide"><strong>Slide 2:</strong> Step 1: You sit down with your stylist for a real conversation. We ask about your hair history, your routine, and what you actually want. No assumptions.</div>
+        <div class="slide"><strong>Slide 3:</strong> Step 2: Your stylist recommends a plan — and gives you the price before anything starts. No surprises, no hidden fees.</div>
+        <div class="slide"><strong>Slide 4:</strong> Step 3: You relax while we do the work. We check in during the service, and if anything doesn't feel right, we adjust. Ready to book your first visit?</div>
+        <div class="label">Caption</div>
+        <div class="value">New to Beauty and the Beach? Here's what your first visit looks like. No guesswork, no surprises — just a real conversation about your hair. Book your consultation today. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+
+    <!-- EMAIL 1 -->
+    <div class="deliverable">
+      <div class="deliverable-header h3">
+        <div>
+          <strong>Julio 5 — Email Marketing</strong>
+          <div class="meta">👤 Healthy Hair Treatment Seekers · 📅 Week 1 · Summer Hair Reset</div>
+        </div>
+        <span class="format-badge">Email</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="email-line subject">Subject: Your summer hair survival kit is here 🌴</div>
+        <div class="email-line preview">Preview: Florida humidity is no match for NKST keratin and K-18 bond repair.</div>
+        <div class="email-body">
+          <p><strong>Hi [First Name],</strong></p>
+          <p>Florida summer is here — and so is the frizz, the humidity, and the fight to keep your hair looking good. If you're tired of battling your hair every morning, we have a solution that actually works.</p>
+          <p>Our NKST formaldehyde-free keratin treatments are customized to your hair type. Smooth doesn't have to mean pin-straight — we tailor every treatment so you keep your natural movement while saying goodbye to frizz. And for damaged or over-processed hair, K-18 bond repair rebuilds your hair from the inside out.</p>
+          <p>We're running our Summer Hair Reset special through July. Book a consultation and we'll help you figure out which treatment is right for your hair.</p>
+          <p><strong>→ Book your Summer Hair Reset:</strong> beautyandthebeachsalon.net/book</p>
+          <p>See you at the salon,<br>The Beauty and the Beach Team</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG 1 + PUSH -->
+    <div class="deliverable">
+      <div class="deliverable-header h3">
+        <div>
+          <strong>Julio 5 — Blog Post</strong>
+          <div class="meta">👤 Healthy Hair Treatment Seekers · 📅 Week 1 · Summer Hair Reset</div>
+        </div>
+        <span class="format-badge">Blog + Push</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Title</div>
+        <div class="value title">Florida Humidity Got You Down? Here's Your Summer Hair Survival Guide</div>
+        <div class="label">Intro</div>
+        <div class="value">Living in South Florida means eight months of humidity, heat, and hair that doesn't cooperate. Between the frizz, the brassiness, and the constant battle to keep your blowout alive, summer hair can feel like a full-time job. Here's your survival guide.</div>
+        <div class="label">Blog Structure</div>
+        <div class="blog-h2">H2: Why Florida Humidity Wrecks Your Hair (And What Actually Works)</div>
+        <div class="blog-explain">The science of humidity and frizz — how moisture in the air breaks hydrogen bonds in the hair cuticle. Introduce keratin treatments as the solution that seals the cuticle against humidity.</div>
+        <div class="blog-h2">H2: Keratin vs. K-18 vs. Davines — Which Treatment Is Right for You?</div>
+        <div class="blog-explain">Compare the three treatment options available at Beauty and the Beach. Keratin (NKST, formaldehyde-free) for smoothing and frizz control. K-18 for bond repair on damaged/color-treated hair. Davines for ongoing maintenance and color protection. Include a simple decision flow.</div>
+        <div class="blog-h2">H2: Real Results From Real Clients</div>
+        <div class="blog-explain">Feature a before/after story from a client who did a keratin treatment for summer. Pull language from reviews.</div>
+        <div class="blog-h2">H2: Your Summer Hair Reset Starts Here</div>
+        <div class="blog-explain">Simple CTA to book a consultation. Mention the stylists who specialize in treatments (Sarah, Hailey, Alex). Reassure readers that every treatment starts with a conversation.</div>
+        <div class="cta">→ Book your Summer Hair Reset consultation: beautyandthebeachsalon.net/book</div>
+        <div class="push"><strong>↳ Push Notification (paired with above blog post)</strong><br>Florida humidity is winning? Not anymore. Our NKST keratin and K-18 treatments are your summer hair survival kit. Book your consultation now. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+
+    <!-- INFOGRAPHIC 1 -->
+    <div class="deliverable">
+      <div class="deliverable-header h1">
+        <div>
+          <strong>Julio 5 — Infographic 1</strong>
+          <div class="meta">👤 All clusters · 📅 Week 1 · Summer Hair Reset</div>
+        </div>
+        <span class="format-badge">Infographic</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Title</div>
+        <div class="value title">Summer Hair Survival Guide</div>
+        <div class="label">Concept</div>
+        <div class="value">A one-page visual guide showing the common summer hair problems (frizz, brassiness, damage, dryness) mapped to solutions available at Beauty and the Beach (Keratin, K-18, Davines toner, Blonde refresh, Kids cuts). Each problem → solution → CTA.</div>
+        <div class="label">Key Sections</div>
+        <div class="infobox">
+          <strong>Problem 1:</strong> Frizz &amp; humidity → Solution: NKST Keratin treatment (formaldehyde-free)<br>
+          <strong>Problem 2:</strong> Brassy blonde → Solution: Toner refresh + K-18 bond repair<br>
+          <strong>Problem 3:</strong> Heat damage / dry hair → Solution: Davines nourishing treatment<br>
+          <strong>Problem 4:</strong> Kids' haircuts needed → Solution: Family appointment booking<br>
+          <strong>CTA Footer:</strong> "Book your summer hair appointment" with link
+        </div>
+        <div class="label">Copy Direction</div>
+        <div class="value">Friendly, educational, visual. Use icons for each problem. Short text blocks — the design does the heavy lifting. Brand colors: black, navy (#242389), gold accent (#FFCC00). Include @beautyandthebeachsalon954 handle.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== WEEK 2 ====== -->
+  <div class="section" id="week2">
+    <div class="week-header">
+      <h2>Semana 2 — 6–12 Julio · Stylist Spotlight &amp; Trust</h2>
+      <span class="theme-label">Stylist Spotlight &amp; Trust</span>
+    </div>
+
+    <!-- CAROUSEL 3 -->
+    <div class="deliverable">
+      <div class="deliverable-header h1">
+        <div>
+          <strong>Julio 8 — Carousel</strong>
+          <div class="meta">👤 Blonde &amp; Color Loyalists · 📅 Week 2 · Stylist Spotlight &amp; Trust</div>
+        </div>
+        <span class="format-badge">Carousel (4 slides)</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Objective</div>
+        <div class="value">Strengthen the stylist-client relationship by featuring Brittny's color expertise and building trust for booking.</div>
+        <div class="label">Title</div>
+        <div class="value title">Meet Brittny — Your Color Specialist</div>
+        <div class="label">Slide Copy</div>
+        <div class="slide"><strong>Slide 1:</strong> Not all color is created equal. That's why our clients book Brittny by name.</div>
+        <div class="slide"><strong>Slide 2:</strong> Brittny specializes in dimensional blonding, balayage, and custom color — creating looks that grow out beautifully, not harshly.</div>
+        <div class="slide"><strong>Slide 3:</strong> "Our clients don't just come back — they come back by name. Because they trust the person, not just the salon."</div>
+        <div class="slide"><strong>Slide 4:</strong> Ready for your color refresh? Book Brittny for your next appointment.</div>
+        <div class="label">Caption</div>
+        <div class="value">Meet Brittny — one of the reasons our blonde clients keep coming back. 🎨 She specializes in dimensional color that stays cool, healthy, and grows out beautifully. Book by name, not luck. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+
+    <!-- CAROUSEL 4 -->
+    <div class="deliverable">
+      <div class="deliverable-header h2">
+        <div>
+          <strong>Julio 10 — Carousel</strong>
+          <div class="meta">👤 Trust-First New Clients · 📅 Week 2 · Stylist Spotlight &amp; Trust</div>
+        </div>
+        <span class="format-badge">Carousel (5 slides)</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Objective</div>
+        <div class="value">Show real client transformations to build trust and prove quality before new clients book.</div>
+        <div class="label">Title</div>
+        <div class="value title">Real Results. Real Clients. Real Trust.</div>
+        <div class="label">Slide Copy</div>
+        <div class="slide"><strong>Slide 1:</strong> We could tell you we're great. We'd rather show you.</div>
+        <div class="slide"><strong>Slide 2:</strong> "Anjalic dyed my hair and she was incredible. She took her time, explained every step, and left my hair healthy and soft. For a blonde like me, this is essential." — Sarah</div>
+        <div class="slide"><strong>Slide 3:</strong> "Aixa gave me the exact layers I asked for. My hair feels silky, soft, and looks super shiny after the products she used." — Lavisha</div>
+        <div class="slide"><strong>Slide 4:</strong> "Tori cut and styled my curls perfectly. I am delighted with the result." — Taylor C</div>
+        <div class="slide"><strong>Slide 5:</strong> Our reviews talk about one thing: how we listen. Book your first visit and see the difference.</div>
+        <div class="label">Caption</div>
+        <div class="value">Don't take our word for it — hear from our clients. 🗣️ Real results, real transformations, and a whole lot of listening. Book your first appointment today. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+
+    <!-- EMAIL 2 -->
+    <div class="deliverable">
+      <div class="deliverable-header h1">
+        <div>
+          <strong>Julio 10 — Email Marketing</strong>
+          <div class="meta">👤 Blonde &amp; Color Loyalists · 📅 Week 2 · Stylist Spotlight &amp; Trust</div>
+        </div>
+        <span class="format-badge">Email</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="email-line subject">Subject: Keep your blonde cool this summer 💁‍♀️</div>
+        <div class="email-line preview">Preview: Brassiness happens. Here's how to prevent it between visits.</div>
+        <div class="email-body">
+          <p><strong>Hi [First Name],</strong></p>
+          <p>Summer is the hardest season on blonde hair. Pool chlorine, salt water, and UV rays all work together to turn your cool blonde warm and brassy. But a few small habits can make a big difference between appointments.</p>
+          <p><strong>First:</strong> purple shampoo is your best friend — but use it right. Once a week, leave it on for 2-3 minutes. Any longer and it can start to tint your hair violet.</p>
+          <p><strong>Second:</strong> heat protection. Every time you use a hot tool, you're opening the cuticle and letting brassiness creep in. A Davines heat protectant keeps your color safe and your hair healthy.</p>
+          <p><strong>Third:</strong> refresh your toner. If you're seeing brassiness, don't wait 4 more weeks. A quick gloss treatment can reset your tone and buy you time until your full appointment.</p>
+          <p>Ready for your July refresh? Brittny, Anjalic, and Abby are booking now.</p>
+          <p><strong>→ Book your blonde refresh:</strong> beautyandthebeachsalon.net/book</p>
+          <p>Stay cool (literally),<br>The Beauty and the Beach Team</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG 2 + PUSH -->
+    <div class="deliverable">
+      <div class="deliverable-header h2">
+        <div>
+          <strong>Julio 12 — Blog Post</strong>
+          <div class="meta">👤 Trust-First New Clients · 📅 Week 2 · Stylist Spotlight &amp; Trust</div>
+        </div>
+        <span class="format-badge">Blog + Push</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Title</div>
+        <div class="value title">5 Questions to Ask Before Your First Salon Visit</div>
+        <div class="label">Intro</div>
+        <div class="value">Walking into a new salon for the first time can feel like a blind date. You're hopeful, but you've been burned before. Here are five questions to ask — and what great answers sound like.</div>
+        <div class="label">Blog Structure</div>
+        <div class="blog-h2">H2: 1. "Will You Actually Listen to What I Want?"</div>
+        <div class="blog-explain">The #1 fear. What a consultation-first approach looks like. How Beauty and the Beach starts every service with a real conversation — not a guess.</div>
+        <div class="blog-h2">H2: 2. "How Much Will It Cost — Really?"</div>
+        <div class="blog-explain">Pricing transparency. No surprise charges. We confirm the price before starting and get approval for any additions.</div>
+        <div class="blog-h2">H2: 3. "What If I Don't Like It?"</div>
+        <div class="blog-explain">The satisfaction guarantee. In-chair check-ins during service. 48-hour follow-up text. "If anything isn't right, tell us — we'll fix it."</div>
+        <div class="blog-h2">H2: 4. "Which Stylist Should I Book With?"</div>
+        <div class="blog-explain">Named stylists with specific specialties. Mike for precision cuts, Brittny for color, Tori for curls, Alexandra for kids. Help the reader choose.</div>
+        <div class="blog-h2">H2: 5. "How Do I Book?"</div>
+        <div class="blog-explain">24/7 online booking in 60 seconds. Text-to-book option. Phone booking available.</div>
+        <div class="cta">→ Book your first visit: beautyandthebeachsalon.net/book</div>
+        <div class="push"><strong>↳ Push Notification (paired with above blog post)</strong><br>New to Beauty and the Beach? Here are 5 questions to ask before your first visit — and why our answers might surprise you. Book with confidence. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== WEEK 3 ====== -->
+  <div class="section" id="week3">
+    <div class="week-header">
+      <h2>Semana 3 — 13–19 Julio · Family &amp; Frizz-Free</h2>
+      <span class="theme-label">Family &amp; Frizz-Free</span>
+    </div>
+
+    <!-- CAROUSEL 5 -->
+    <div class="deliverable">
+      <div class="deliverable-header h4">
+        <div>
+          <strong>Julio 15 — Carousel</strong>
+          <div class="meta">👤 Family &amp; Mom Bookers · 📅 Week 3 · Family &amp; Frizz-Free</div>
+        </div>
+        <span class="format-badge">Carousel (4 slides)</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Objective</div>
+        <div class="value">Encourage moms to book simultaneous appointments for themselves and their kids.</div>
+        <div class="label">Title</div>
+        <div class="value title">Mom &amp; Me: Hair Days Are Better Together</div>
+        <div class="label">Slide Copy</div>
+        <div class="slide"><strong>Slide 1:</strong> You deserve a haircut too. And your kids need one. Why not do both at the same time?</div>
+        <div class="slide"><strong>Slide 2:</strong> Book yourself with one stylist and your child with another — same time, same salon. No extra trips, no wasted hours.</div>
+        <div class="slide"><strong>Slide 3:</strong> Our kid-friendly stylists (Alexandra, Tori) are patient, fun, and great with little ones. "Alexandra was phenomenal with my 5-year-old daughter." — Kalene</div>
+        <div class="slide"><strong>Slide 4:</strong> Ready for a family hair day? Book your Mom &amp; Me appointment now.</div>
+        <div class="label">Caption</div>
+        <div class="value">Mom &amp; Me appointments = same time, same salon, no extra trips. 🏖️ You get a moment to yourself while your child is in great hands. Book your family appointment today. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+
+    <!-- CAROUSEL 6 -->
+    <div class="deliverable">
+      <div class="deliverable-header h3">
+        <div>
+          <strong>Julio 17 — Carousel</strong>
+          <div class="meta">👤 Healthy Hair Treatment Seekers · 📅 Week 3 · Family &amp; Frizz-Free</div>
+        </div>
+        <span class="format-badge">Carousel (5 slides)</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Objective</div>
+        <div class="value">Educate treatment seekers on the difference between keratin and K-18 so they can confidently book.</div>
+        <div class="label">Title</div>
+        <div class="value title">Keratin vs. K-18: Which One Does Your Hair Need?</div>
+        <div class="label">Slide Copy</div>
+        <div class="slide"><strong>Slide 1:</strong> Keratin and K-18 both help damaged hair — but they do different things. Here's how to choose.</div>
+        <div class="slide"><strong>Slide 2:</strong> Keratin (NKST, formaldehyde-free): Seals the cuticle to block humidity and frizz. Best for frizzy, wavy, or unmanageable hair. Results: smooth, shiny, easy-to-style hair.</div>
+        <div class="slide"><strong>Slide 3:</strong> K-18: Rebuilds broken bonds inside the hair shaft. Best for chemically damaged, over-processed, or bleached hair. Results: stronger, healthier, more resilient hair.</div>
+        <div class="slide"><strong>Slide 4:</strong> Not sure which is right? That's what the consultation is for. We'll look at your hair, ask about your routine, and recommend the right treatment — no pressure, no upselling.</div>
+        <div class="slide"><strong>Slide 5:</strong> Summer is the best time to treat your hair. Book a consultation and let's figure it out together.</div>
+        <div class="label">Caption</div>
+        <div class="value">Keratin vs. K-18 — which treatment is right for you? 🤔 We break it down so you can choose with confidence. Not sure? Book a consultation — we'll help you decide. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+
+    <!-- EMAIL 3 -->
+    <div class="deliverable">
+      <div class="deliverable-header h4">
+        <div>
+          <strong>Julio 17 — Email Marketing</strong>
+          <div class="meta">👤 Family &amp; Mom Bookers · 📅 Week 3 · Family &amp; Frizz-Free</div>
+        </div>
+        <span class="format-badge">Email</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="email-line subject">Subject: Back-to-school haircuts: book early 🎒</div>
+        <div class="email-line preview">Preview: Your kids need haircuts. You need a moment. Let's do both.</div>
+        <div class="email-body">
+          <p><strong>Hi [First Name],</strong></p>
+          <p>We know: back-to-school feels far away, but August books up fast, especially for kids' haircuts. Here's a pro tip — book your family appointments in July while availability is open.</p>
+          <p>Here's how it works: book yourself with one stylist and your child with another at the same time. You get a blowout, a cut, or color — while your child gets a patient, fun haircut experience with Alexandra or Tori.</p>
+          <p>Kalene put it best: "Alexandra was phenomenal with my 5-year-old daughter. My daughter had her hair cut for the first time, and it turned out wonderful."</p>
+          <p>July appointments are wide open. August fills up quickly. Book now and save the back-to-school stress for actual school.</p>
+          <p><strong>→ Book your family appointment:</strong> beautyandthebeachsalon.net/book</p>
+          <p>See you soon,<br>The Beauty and the Beach Team</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG 3 + PUSH -->
+    <div class="deliverable">
+      <div class="deliverable-header h4">
+        <div>
+          <strong>Julio 19 — Blog Post</strong>
+          <div class="meta">👤 Family &amp; Mom Bookers · 📅 Week 3 · Family &amp; Frizz-Free</div>
+        </div>
+        <span class="format-badge">Blog + Push</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Title</div>
+        <div class="value title">Your Child's First Haircut: Tips for a Happy Salon Visit</div>
+        <div class="label">Intro</div>
+        <div class="value">A child's first haircut is a milestone — for both of you. Will they sit still? Will they be scared? Will it be a good memory or a traumatic one? Here's how to make it a positive experience.</div>
+        <div class="label">Blog Structure</div>
+        <div class="blog-h2">H2: When Is the Right Time for a First Haircut?</div>
+        <div class="blog-explain">Signs that your child is ready. No set age — watch for hair in their eyes, tangles, or if they're bothered by their hair.</div>
+        <div class="blog-h2">H2: How We Make Kids Feel Comfortable</div>
+        <div class="blog-explain">Our approach at Beauty and the Beach. Patient stylists, breaks if needed, fun atmosphere. Alexandra and Tori specialize in working with children. We've done hundreds of first haircuts.</div>
+        <div class="blog-h2">H2: Tips for Parents: Before, During, and After</div>
+        <div class="blog-explain">Bring a familiar toy or snack. Schedule around nap time. Let the stylist lead the interaction. Don't stress — kids pick up on parent anxiety.</div>
+        <div class="blog-h2">H2: Book a Family Appointment — Mom Gets a Treat Too</div>
+        <div class="blog-explain">The Mom &amp; Me booking option. Same time, different stylists. You get a cut or blowout while your child gets their milestone haircut.</div>
+        <div class="cta">→ Book your family appointment: beautyandthebeachsalon.net/book</div>
+        <div class="push"><strong>↳ Push Notification (paired with above blog post)</strong><br>First haircut coming up? We've helped hundreds of little ones feel comfortable in the chair. Book your child's appointment — and treat yourself at the same time. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== WEEK 4 ====== -->
+  <div class="section" id="week4">
+    <div class="week-header">
+      <h2>Semana 4 — 20–26 Julio · Blonde &amp; Curly Focus</h2>
+      <span class="theme-label">Blonde &amp; Curly Focus</span>
+    </div>
+
+    <!-- CAROUSEL 7 -->
+    <div class="deliverable">
+      <div class="deliverable-header h1">
+        <div>
+          <strong>Julio 22 — Carousel</strong>
+          <div class="meta">👤 Blonde &amp; Color Loyalists · 📅 Week 4 · Blonde &amp; Curly Focus</div>
+        </div>
+        <span class="format-badge">Carousel (4 slides)</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Objective</div>
+        <div class="value">Prompt existing blonde clients to book a mid-summer toner refresh.</div>
+        <div class="label">Title</div>
+        <div class="value title">Mid-Summer Blonde Check: Is Your Color Still Cool?</div>
+        <div class="label">Slide Copy</div>
+        <div class="slide"><strong>Slide 1:</strong> How's your blonde looking? Mid-summer is when brassiness creeps in. Here's how to tell if you need a refresh.</div>
+        <div class="slide"><strong>Slide 2:</strong> Signs your toner is fading: Your blonde looks warmer than it did 4 weeks ago. Your ends are slightly yellow. Your color doesn't have the same dimension.</div>
+        <div class="slide"><strong>Slide 3:</strong> The fix? A toner gloss treatment. It takes less time than a full color service and resets your tone for another 4-6 weeks. We use Davines toners for cool, dimensional results.</div>
+        <div class="slide"><strong>Slide 4:</strong> Don't wait until your blonde is brassy. Book a toner refresh with Brittny or Anjalic this week.</div>
+        <div class="label">Caption</div>
+        <div class="value">Mid-summer blonde check: is your color still cool? ❄️ If you're seeing warmth creeping in, a toner gloss can reset your tone in one appointment. Book your refresh. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+
+    <!-- CAROUSEL 8 -->
+    <div class="deliverable">
+      <div class="deliverable-header h5">
+        <div>
+          <strong>Julio 24 — Carousel</strong>
+          <div class="meta">👤 Curly &amp; Textured Niche · 📅 Week 4 · Blonde &amp; Curly Focus</div>
+        </div>
+        <span class="format-badge">Carousel (4 slides)</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Objective</div>
+        <div class="value">Plant the seed for Beauty and the Beach as a curly-friendly salon, showcasing Tori's work.</div>
+        <div class="label">Title</div>
+        <div class="value title">Finally, a Stylist Who Understands Curls</div>
+        <div class="label">Slide Copy</div>
+        <div class="slide"><strong>Slide 1:</strong> If you have curly hair, you know the struggle: stylists who say they "get curls" but cut them like they're straight.</div>
+        <div class="slide"><strong>Slide 2:</strong> We cut for your natural texture — not for the blow-dry. We look at how your curls fall, and we shape the cut around them.</div>
+        <div class="slide"><strong>Slide 3:</strong> Tori has been specifically praised for her curly cuts. "She cut and styled my curls perfectly. I am delighted with the result." — Taylor C</div>
+        <div class="slide"><strong>Slide 4:</strong> Curls deserve a stylist who respects them. Book your curly cut with Tori.</div>
+        <div class="label">Caption</div>
+        <div class="value">Curly hair, handled with care. 💁‍♀️ We cut for your natural texture — not for the blow-dry. Tori specializes in curly cuts that work with your curls, not against them. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+
+    <!-- EMAIL 4 -->
+    <div class="deliverable">
+      <div class="deliverable-header h3">
+        <div>
+          <strong>Julio 24 — Email Marketing</strong>
+          <div class="meta">👤 Healthy Hair Treatment Seekers · 📅 Week 4 · Blonde &amp; Curly Focus</div>
+        </div>
+        <span class="format-badge">Email</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="email-line subject">Subject: Your hair has been through a lot this summer. Let's fix it.</div>
+        <div class="email-line preview">Preview: Post-summer repair starts now — before the real damage sets in.</div>
+        <div class="email-body">
+          <p><strong>Hi [First Name],</strong></p>
+          <p>July is almost over, and your hair has been through three months of Florida summer. Pool chemicals, UV rays, salt water, humidity, heat styling — it adds up.</p>
+          <p>The good news: fall is the perfect time to repair before the damage becomes permanent. K-18 bond repair rebuilds the broken bonds in your hair from the inside. It's not a surface treatment — it actually restores your hair's strength and elasticity.</p>
+          <p>And if your hair is feeling dry and brittle from the sun, our Davines nourishing treatments restore moisture and shine without weighing your hair down.</p>
+          <p>Book a consultation this month and we'll assess what your hair needs. Summer took a lot out of your hair. We can put it back.</p>
+          <p><strong>→ Book your hair repair consultation:</strong> beautyandthebeachsalon.net/book</p>
+          <p>Your hair will thank you,<br>The Beauty and the Beach Team</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG 4 + PUSH -->
+    <div class="deliverable">
+      <div class="deliverable-header h1">
+        <div>
+          <strong>Julio 26 — Blog Post</strong>
+          <div class="meta">👤 Blonde &amp; Color Loyalists · 📅 Week 4 · Blonde &amp; Curly Focus</div>
+        </div>
+        <span class="format-badge">Blog + Push</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Title</div>
+        <div class="value title">How to Keep Your Blonde Healthy All Summer Long</div>
+        <div class="label">Intro</div>
+        <div class="value">Blonde hair requires maintenance — and summer is the most demanding season. Between the pool, the sun, and the humidity, your blonde needs extra care to stay cool, healthy, and dimensional. Here's your summer blonde maintenance guide.</div>
+        <div class="label">Blog Structure</div>
+        <div class="blog-h2">H2: The Summer Threats to Your Blonde (And What to Do About Them)</div>
+        <div class="blog-explain">Three main threats — brassiness (UV + heat), dryness (salt water + chlorine), and damage (bleach + sun). How each affects blonde hair differently.</div>
+        <div class="blog-h2">H2: The In-Salon Treatments That Protect Your Blonde</div>
+        <div class="blog-explain">K-18 bond repair included in every color service. Davines toner gloss for mid-cycle refresh. Purple shampoo treatments for at-home maintenance. Named stylists who specialize in healthy blonde (Brittny, Anjalic, Abby).</div>
+        <div class="blog-h2">H2: At-Home Blonde Care: What Actually Works</div>
+        <div class="blog-explain">Purple shampoo routine (once a week, 2-3 min). Heat protection before styling. Leave-in conditioner with UV protection. When to book your next appointment (every 6-8 weeks, don't push past 8).</div>
+        <div class="blog-h2">H2: Your Summer Blonde Plan</div>
+        <div class="blog-explain">Summary: book a toner refresh now, a full color in 6-8 weeks, and K-18 treatment every 3 months. Simple schedule for maintaining healthy blonde year-round.</div>
+        <div class="cta">→ Book your blonde refresh: beautyandthebeachsalon.net/book</div>
+        <div class="push"><strong>↳ Push Notification (paired with above blog post)</strong><br>Your blonde has been through a lot this summer. Here's how to keep it cool, healthy, and brassy-free. Book your toner refresh today. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== WEEK 5 ====== -->
+  <div class="section" id="week5">
+    <div class="week-header">
+      <h2>Semana 5 — 27–31 Julio · Back-to-School Early Prep</h2>
+      <span class="theme-label">Back-to-School Early Prep</span>
+    </div>
+
+    <!-- CAROUSEL 9 -->
+    <div class="deliverable">
+      <div class="deliverable-header h4">
+        <div>
+          <strong>Julio 29 — Carousel</strong>
+          <div class="meta">👤 Family &amp; Mom Bookers · 📅 Week 5 · Back-to-School Early Prep</div>
+        </div>
+        <span class="format-badge">Carousel (4 slides)</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Objective</div>
+        <div class="value">Drive early back-to-school haircut bookings before August rush.</div>
+        <div class="label">Title</div>
+        <div class="value title">Back-to-School Haircuts: Book July, Thank Yourself in August</div>
+        <div class="label">Slide Copy</div>
+        <div class="slide"><strong>Slide 1:</strong> Back-to-school means haircuts for the whole family. And August gets busy fast.</div>
+        <div class="slide"><strong>Slide 2:</strong> Beat the rush: book your family's back-to-school appointments in July. Same-time booking available — you and your kids, different stylists, one trip.</div>
+        <div class="slide"><strong>Slide 3:</strong> Our kid-friendly stylists Alexandra and Tori are patient, fun, and experienced with children of all ages — from first haircuts to school-age trims.</div>
+        <div class="slide"><strong>Slide 4:</strong> July appointments are open. August fills up. Don't wait. Book your family's back-to-school haircuts today.</div>
+        <div class="label">Caption</div>
+        <div class="value">Back-to-school haircuts: book in July, thank yourself in August. 🎒 Same-time family appointments available. Book now before the rush. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+
+    <!-- CAROUSEL 10 -->
+    <div class="deliverable">
+      <div class="deliverable-header h2">
+        <div>
+          <strong>Julio 31 — Carousel</strong>
+          <div class="meta">👤 Trust-First New Clients · 📅 Week 5 · Back-to-School Early Prep</div>
+        </div>
+        <span class="format-badge">Carousel (5 slides)</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Objective</div>
+        <div class="value">Reinforce trust signals and social proof to convert hesitant new clients.</div>
+        <div class="label">Title</div>
+        <div class="value title">Why Our Clients Keep Coming Back (It's Not Just the Hair)</div>
+        <div class="label">Slide Copy</div>
+        <div class="slide"><strong>Slide 1:</strong> We have clients who've been coming to us for years. Not because we're fancy — because we listen.</div>
+        <div class="slide"><strong>Slide 2:</strong> "Mike is the best. He listened, took the consultation seriously, and actually heard me." — Christie</div>
+        <div class="slide"><strong>Slide 3:</strong> "Alex is a true hair magician. He listens carefully and understands exactly what I need." — Adria</div>
+        <div class="slide"><strong>Slide 4:</strong> "Since I came to this salon, I have been happy with every visit. Sarah has done wonders with my hair, helping me keep it healthy and precise." — Mandolin</div>
+        <div class="slide"><strong>Slide 5:</strong> Ready to find your go-to stylist? Book your first appointment. We'll start with a conversation.</div>
+        <div class="label">Caption</div>
+        <div class="value">Why do our clients keep coming back? Because we actually listen. 🤍 Real talk, real consultations, real results. Book your first visit and see the difference. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+
+    <!-- EMAIL 5 -->
+    <div class="deliverable">
+      <div class="deliverable-header h5">
+        <div>
+          <strong>Julio 31 — Email Marketing</strong>
+          <div class="meta">👤 All clusters · 📅 Week 5 · Back-to-School Early Prep</div>
+        </div>
+        <span class="format-badge">Email</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="email-line subject">Subject: August is almost here. Here's what's coming 👀</div>
+        <div class="email-line preview">Preview: Back-to-school specials, new stylist features, and your referral reward.</div>
+        <div class="email-body">
+          <p><strong>Hi [First Name],</strong></p>
+          <p>July flew by, and August is right around the corner. Here's what you need to know:</p>
+          <p>📅 <strong>Book your back-to-school appointments now.</strong> August slots fill up fast. If you need haircuts for the kids — or a refresh for yourself — book this week while availability is open.</p>
+          <p>🎁 <strong>Refer a friend and save.</strong> Know someone who keeps saying "I need to find a new salon"? Send them our way. When they book, you both get $10-20 off your next visit.</p>
+          <p>💇‍♀️ <strong>Coming in August:</strong> New stylist features, a post-summer repair series, and an early look at our fall color trends.</p>
+          <p>See you in August,<br>The Beauty and the Beach Team</p>
+          <p><strong>→ Book your appointment:</strong> beautyandthebeachsalon.net/book<br>
+          <strong>→ Refer a friend:</strong> beautyandthebeachsalon.net/refer</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG 5 + PUSH -->
+    <div class="deliverable">
+      <div class="deliverable-header h5">
+        <div>
+          <strong>Julio 31 — Blog Post</strong>
+          <div class="meta">👤 All clusters · 📅 Week 5 · Back-to-School Early Prep</div>
+        </div>
+        <span class="format-badge">Blog + Push</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Title</div>
+        <div class="value title">End of Summer Hair Refresh: Your August-Ready Guide</div>
+        <div class="label">Intro</div>
+        <div class="value">Summer is winding down, and your hair is telling the story. The blonde is warmer than it was in June. The ends feel drier. The frizz is still here. An end-of-summer refresh sets you up for a strong fall.</div>
+        <div class="label">Blog Structure</div>
+        <div class="blog-h2">H2: What Your Hair Needs After Summer (And Why Now Is the Time)</div>
+        <div class="blog-explain">Cumulative summer damage — UV, chlorine, salt, heat styling. Why waiting until September means more damage to repair. Act now for easier recovery.</div>
+        <div class="blog-h2">H2: The End-of-Summer Treatment Lineup</div>
+        <div class="blog-explain">Three options depending on hair condition — K-18 bond repair for damaged/color-treated, NKST keratin for frizz control, Davines nourishing mask for moisture restoration. How to choose (or book a consultation).</div>
+        <div class="blog-h2">H2: Blonde Refresh: Reset Your Tone for Fall</div>
+        <div class="blog-explain">Fall is the perfect time to switch from summer bright blonde to a warmer, more dimensional autumn blonde. Toner gloss appointments and what to discuss with your colorist.</div>
+        <div class="blog-h2">H2: Your August Hair Plan</div>
+        <div class="blog-explain">Simple recommendations by cluster — Blonde Loyalists book toner + trim, Treatment Seekers book K-18, Families book back-to-school cuts, Trust-First clients book consultation.</div>
+        <div class="cta">→ Book your end-of-summer refresh: beautyandthebeachsalon.net/book</div>
+        <div class="push"><strong>↳ Push Notification (paired with above blog post)</strong><br>Summer did a number on your hair? Book an end-of-summer refresh — K-18, toner gloss, or keratin. Your fall hair will thank you. → beautyandthebeachsalon.net/book</div>
+      </div>
+    </div>
+
+    <!-- INFOGRAPHIC 2 -->
+    <div class="deliverable">
+      <div class="deliverable-header h4">
+        <div>
+          <strong>Julio 31 — Infographic 2</strong>
+          <div class="meta">👤 All clusters (primarily Family &amp; Mom Bookers) · 📅 Week 5 · Back-to-School Early Prep</div>
+        </div>
+        <span class="format-badge">Infographic</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="label">Title</div>
+        <div class="value title">Back-to-School Hair Prep Timeline</div>
+        <div class="label">Concept</div>
+        <div class="value">A timeline infographic showing the ideal back-to-school hair prep schedule. Start in July (book appointments), mid-August (haircuts), late August (treatments for parents). Visual calendar format.</div>
+        <div class="label">Key Sections</div>
+        <div class="infobox">
+          <strong>Late July:</strong> Book family appointments (beat the rush)<br>
+          <strong>Early-Mid August:</strong> Kids' haircuts (Alexandra, Tori)<br>
+          <strong>Mid August:</strong> Mom's refresh (cut, color, or blowout)<br>
+          <strong>Late August:</strong> Treatment refresh (K-18, keratin for parents)<br>
+          <strong>CTA:</strong> "Book your back-to-school appointment today"
+        </div>
+        <div class="label">Copy Direction</div>
+        <div class="value">Warm, practical, helpful. Use a calendar visual with key dates marked. Brand colors. Include @beautyandthebeachsalon954 handle and booking link QR.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== DELIVERABLE COUNT CHECK ====== -->
+  <div class="section" id="count">
+    <div class="count-check">
+      <h2>Deliverable Count Check</h2>
+      <div class="row">
+        <div class="item">✅ Carousels: 10 / 10</div>
+        <div class="item">✅ Blog Posts: 5 / 4–6</div>
+        <div class="item">✅ Newsletters (Email): 5 / 4–6</div>
+        <div class="item">✅ Push Notifications: 5 / 5</div>
+        <div class="item">✅ Infographics: 2 / 2</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== CONTENT CALENDAR ====== -->
+  <div class="section" id="calendar">
+    <h2>Content Calendar — Julio 2026</h2>
+    <table class="cal-table">
+      <tr><th>Date</th><th>Format</th><th>Topic / Headline</th><th>Target Persona</th></tr>
+      <tr><td>July 1</td><td>Carousel</td><td>Your Blonde Deserves a Summer Refresh</td><td>Blonde &amp; Color Loyalists</td></tr>
+      <tr><td>July 3</td><td>Carousel</td><td>What to Expect at Your First Visit</td><td>Trust-First New Clients</td></tr>
+      <tr><td>July 5</td><td>Email</td><td>Your summer hair survival kit is here 🌴</td><td>Healthy Hair Treatment Seekers</td></tr>
+      <tr><td>July 5</td><td>Blog Post</td><td>Florida Humidity Got You Down? Summer Hair Survival Guide</td><td>Healthy Hair Treatment Seekers</td></tr>
+      <tr><td>July 5</td><td>Infographic</td><td>Summer Hair Survival Guide</td><td>All clusters</td></tr>
+      <tr><td>July 8</td><td>Carousel</td><td>Meet Brittny — Your Color Specialist</td><td>Blonde &amp; Color Loyalists</td></tr>
+      <tr><td>July 10</td><td>Carousel</td><td>Real Results. Real Clients. Real Trust.</td><td>Trust-First New Clients</td></tr>
+      <tr><td>July 10</td><td>Email</td><td>Keep your blonde cool this summer 💁‍♀️</td><td>Blonde &amp; Color Loyalists</td></tr>
+      <tr><td>July 12</td><td>Blog Post</td><td>5 Questions to Ask Before Your First Salon Visit</td><td>Trust-First New Clients</td></tr>
+      <tr><td>July 15</td><td>Carousel</td><td>Mom &amp; Me: Hair Days Are Better Together</td><td>Family &amp; Mom Bookers</td></tr>
+      <tr><td>July 17</td><td>Carousel</td><td>Keratin vs. K-18: Which One Does Your Hair Need?</td><td>Healthy Hair Treatment Seekers</td></tr>
+      <tr><td>July 17</td><td>Email</td><td>Back-to-school haircuts: book early 🎒</td><td>Family &amp; Mom Bookers</td></tr>
+      <tr><td>July 19</td><td>Blog Post</td><td>Your Child's First Haircut: Tips for a Happy Visit</td><td>Family &amp; Mom Bookers</td></tr>
+      <tr><td>July 22</td><td>Carousel</td><td>Mid-Summer Blonde Check: Is Your Color Still Cool?</td><td>Blonde &amp; Color Loyalists</td></tr>
+      <tr><td>July 24</td><td>Carousel</td><td>Finally, a Stylist Who Understands Curls</td><td>Curly &amp; Textured Niche</td></tr>
+      <tr><td>July 24</td><td>Email</td><td>Your hair has been through a lot this summer</td><td>Healthy Hair Treatment Seekers</td></tr>
+      <tr><td>July 26</td><td>Blog Post</td><td>How to Keep Your Blonde Healthy All Summer Long</td><td>Blonde &amp; Color Loyalists</td></tr>
+      <tr><td>July 29</td><td>Carousel</td><td>Back-to-School Haircuts: Book July, Thank Yourself August</td><td>Family &amp; Mom Bookers</td></tr>
+      <tr><td>July 31</td><td>Carousel</td><td>Why Our Clients Keep Coming Back</td><td>Trust-First New Clients</td></tr>
+      <tr><td>July 31</td><td>Email</td><td>August is almost here. Here's what's coming 👀</td><td>All clusters</td></tr>
+      <tr><td>July 31</td><td>Blog Post</td><td>End of Summer Hair Refresh: Your August-Ready Guide</td><td>All clusters</td></tr>
+      <tr><td>July 31</td><td>Infographic</td><td>Back-to-School Hair Prep Timeline</td><td>All clusters</td></tr>
+    </table>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <p>Beauty and the Beach Salon — Content Plan Julio 2026 | First Edition | Generado por OPENCODE</p>
+    <p>22 Deliverables · 5 Semanas · 5 Personas · Outcomes-First Narrative</p>
+  </div>
+</footer>
+
+</body>
+</html>
