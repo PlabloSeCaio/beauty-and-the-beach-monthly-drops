@@ -99,8 +99,8 @@ export const carousels: CarouselItem[] = [
   },
   {
     id: 3,
-    title: "Meet Brittny — Your Color Specialist",
-    caption: "Meet Brittny — one of the reasons our blonde clients keep coming back. 🎨 She specializes in dimensional color that stays cool, healthy, and grows out beautifully. Book by name, not luck. → beautyandthebeachsalon.net/book",
+    title: "Meet Mike — Your Color Specialist",
+    caption: "Meet Mike — one of the reasons our blonde clients keep coming back. 🎨 He specializes in dimensional color that stays cool, healthy, and grows out beautifully. Book by name, not luck. → beautyandthebeachsalon.net/book",
     slides: [c3s0, c3s1, c3s2, c3s3],
   },
   {
