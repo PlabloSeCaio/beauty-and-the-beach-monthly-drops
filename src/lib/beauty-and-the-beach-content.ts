@@ -8,38 +8,38 @@ import c2s1 from "@/assets/beauty-and-the-beach/carousels/c2/slide-1.png";
 import c2s2 from "@/assets/beauty-and-the-beach/carousels/c2/slide-2.png";
 import c2s3 from "@/assets/beauty-and-the-beach/carousels/c2/slide-3.png";
 
-import c3s0 from "@/assets/beauty-and-the-beach/carousels/c4/slide-0.png";
-import c3s1 from "@/assets/beauty-and-the-beach/carousels/c4/slide-1.png";
-import c3s2 from "@/assets/beauty-and-the-beach/carousels/c4/slide-2.png";
-import c3s3 from "@/assets/beauty-and-the-beach/carousels/c4/slide-3.png";
-import c3s4 from "@/assets/beauty-and-the-beach/carousels/c4/slide-4.png";
+import c4s0 from "@/assets/beauty-and-the-beach/carousels/c4/slide-0.png";
+import c4s1 from "@/assets/beauty-and-the-beach/carousels/c4/slide-1.png";
+import c4s2 from "@/assets/beauty-and-the-beach/carousels/c4/slide-2.png";
+import c4s3 from "@/assets/beauty-and-the-beach/carousels/c4/slide-3.png";
+import c4s4 from "@/assets/beauty-and-the-beach/carousels/c4/slide-4.png";
 
-import c4s0 from "@/assets/beauty-and-the-beach/carousels/c6/slide-0.png";
-import c4s1 from "@/assets/beauty-and-the-beach/carousels/c6/slide-1.png";
-import c4s2 from "@/assets/beauty-and-the-beach/carousels/c6/slide-2.png";
-import c4s3 from "@/assets/beauty-and-the-beach/carousels/c6/slide-3.png";
+import c6s0 from "@/assets/beauty-and-the-beach/carousels/c6/slide-0.png";
+import c6s1 from "@/assets/beauty-and-the-beach/carousels/c6/slide-1.png";
+import c6s2 from "@/assets/beauty-and-the-beach/carousels/c6/slide-2.png";
+import c6s3 from "@/assets/beauty-and-the-beach/carousels/c6/slide-3.png";
 
-import c5s0 from "@/assets/beauty-and-the-beach/carousels/c7/slide-0.png";
-import c5s1 from "@/assets/beauty-and-the-beach/carousels/c7/slide-1.png";
-import c5s2 from "@/assets/beauty-and-the-beach/carousels/c7/slide-2.png";
-import c5s3 from "@/assets/beauty-and-the-beach/carousels/c7/slide-3.png";
+import c7s0 from "@/assets/beauty-and-the-beach/carousels/c7/slide-0.png";
+import c7s1 from "@/assets/beauty-and-the-beach/carousels/c7/slide-1.png";
+import c7s2 from "@/assets/beauty-and-the-beach/carousels/c7/slide-2.png";
+import c7s3 from "@/assets/beauty-and-the-beach/carousels/c7/slide-3.png";
 
-import blog1Banner from "@/assets/beauty-and-the-beach/blogs/blog1-banner.png";
-import blog1Story from "@/assets/beauty-and-the-beach/blogs/blog1-story.png";
 import blog2Banner from "@/assets/beauty-and-the-beach/blogs/blog2-banner.png";
 import blog2Story from "@/assets/beauty-and-the-beach/blogs/blog2-story.png";
-import blog3Banner from "@/assets/beauty-and-the-beach/blogs/blog3-banner.png";
-import blog3Story from "@/assets/beauty-and-the-beach/blogs/blog3-story.png";
+import blog4Banner from "@/assets/beauty-and-the-beach/blogs/blog4-banner.png";
+import blog4Story from "@/assets/beauty-and-the-beach/blogs/blog4-story.png";
+import blog5Banner from "@/assets/beauty-and-the-beach/blogs/blog5-banner.png";
+import blog5Story from "@/assets/beauty-and-the-beach/blogs/blog5-story.png";
 
 import nl1Banner from "@/assets/beauty-and-the-beach/newsletters/newsletter.1.png";
 import nl2Banner from "@/assets/beauty-and-the-beach/newsletters/newsletter.2.png";
-import nl3Banner from "@/assets/beauty-and-the-beach/newsletters/newsletter.3.png";
 import nl4Banner from "@/assets/beauty-and-the-beach/newsletters/newsletter.4.png";
+import nl5Banner from "@/assets/beauty-and-the-beach/newsletters/newsletter.5.png";
 
 import email1Story from "@/assets/beauty-and-the-beach/newsletters/email1-story.png";
 import email2Story from "@/assets/beauty-and-the-beach/newsletters/email2-story.png";
-import email3Story from "@/assets/beauty-and-the-beach/newsletters/email3-story.png";
 import email4Story from "@/assets/beauty-and-the-beach/newsletters/email4-story.png";
+import email5Story from "@/assets/beauty-and-the-beach/newsletters/email5-story.png";
 
 export type CarouselItem = {
   id: number;
@@ -83,48 +83,48 @@ export const carousels: CarouselItem[] = [
     slides: [c2s0, c2s1, c2s2, c2s3],
   },
   {
-    id: 3,
+    id: 4,
     title: "Real Results. Real Clients. Real Trust.",
     caption: "Don't take our word for it — hear from our clients. 🗣️ Real results, real transformations, and a whole lot of listening. Book your first appointment today. → beautyandthebeachsalon.net/book",
-    slides: [c3s0, c3s1, c3s2, c3s3, c3s4],
+    slides: [c4s0, c4s1, c4s2, c4s3, c4s4],
   },
   {
-    id: 4,
+    id: 6,
     title: "Keratin vs. K-18: Which One Does Your Hair Need?",
     caption: "Keratin vs. K-18 — which treatment is right for you? 🤔 We break it down so you can choose with confidence. Not sure? Book a consultation — we'll help you decide. → beautyandthebeachsalon.net/book",
-    slides: [c4s0, c4s1, c4s2, c4s3],
+    slides: [c6s0, c6s1, c6s2, c6s3],
   },
   {
-    id: 5,
+    id: 7,
     title: "Mid-Summer Blonde Check: Is Your Color Still Cool?",
     caption: "Mid-summer blonde check: is your color still cool? ❄️ If you're seeing warmth creeping in, a toner gloss can reset your tone in one appointment. Book your refresh. → beautyandthebeachsalon.net/book",
-    slides: [c5s0, c5s1, c5s2, c5s3],
+    slides: [c7s0, c7s1, c7s2, c7s3],
   },
 ];
 
 export const blogs: BlogItem[] = [
   {
-    id: 1,
+    id: 2,
     title: "5 Questions to Ask Before Your First Salon Visit",
     preview: "Walking into a new salon for the first time can feel like a blind date. You're hopeful, but you've been burned before. Here are five questions to ask — and what great answers sound like.",
-    banner: blog1Banner,
-    story: blog1Story,
+    banner: blog2Banner,
+    story: blog2Story,
     docUrl: "/blog-posts.html#post-1",
   },
   {
-    id: 2,
+    id: 4,
     title: "How to Keep Your Blonde Healthy All Summer Long",
     preview: "Blonde hair requires maintenance — and summer is the most demanding season. Between the pool, the sun, and the humidity, your blonde needs extra care to stay cool, healthy, and dimensional. Here's your summer blonde maintenance guide.",
-    banner: blog2Banner,
-    story: blog2Story,
+    banner: blog4Banner,
+    story: blog4Story,
     docUrl: "/blog-posts.html#post-2",
   },
   {
-    id: 3,
+    id: 5,
     title: "End of Summer Hair Refresh: Your August-Ready Guide",
     preview: "Summer is winding down, and your hair is telling the story. The blonde is warmer than it was in June. The ends feel drier. The frizz is still here. An end-of-summer refresh sets you up for a strong fall.",
-    banner: blog3Banner,
-    story: blog3Story,
+    banner: blog5Banner,
+    story: blog5Story,
     docUrl: "/blog-posts.html#post-3",
   },
 ];
@@ -179,11 +179,11 @@ The Beauty and the Beach Team`,
     ctaText: "Book your blonde refresh",
   },
   {
-    id: 3,
+    id: 4,
     title: "Your hair has been through a lot this summer. Let's fix it.",
     preview: "Post-summer repair starts now — before the real damage sets in.",
-    banner: nl3Banner,
-    story: email3Story,
+    banner: nl4Banner,
+    story: email4Story,
     docUrl: "#",
     body: `Hi [First Name],
 
@@ -203,11 +203,11 @@ The Beauty and the Beach Team`,
     ctaText: "Book your hair repair consultation",
   },
   {
-    id: 4,
+    id: 5,
     title: "August is almost here. Here's what's coming 👀",
     preview: "Back-to-school specials, new stylist features, and your referral reward.",
-    banner: nl4Banner,
-    story: email4Story,
+    banner: nl5Banner,
+    story: email5Story,
     docUrl: "#",
     body: `Hi [First Name],
 
